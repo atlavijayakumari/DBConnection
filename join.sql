@@ -82,3 +82,108 @@ INSERT INTO employee_projects (employee_id, project_id, assigned_date) VALUES
 (5, 2, '2024-03-10'),
 (3, 3, '2024-05-05'),
 (4, 3, '2024-05-10');
+
+--Inner Join--
+
+SELECT
+    e.employee_name,
+    d.department_name
+FROM employees e
+INNER JOIN departments d
+ON e.department_id = d.department_id;
+
+
+--LEFT JOIN--
+
+SELECT
+    e.employee_name,
+    d.department_name
+FROM employees e
+LEFT JOIN departments d
+ON e.department_id = d.department_id;
+
+
+--VIEWS--
+
+Example-1:-
+
+Create view employee_department_view AS
+SELECT
+    e.employee_id,
+    e.employee_name,
+    e.salary,
+    d.department_name,
+    d.location
+FROM employees e
+JOIN departments d
+ON e.department_id = d.department_id;
+
+select * 
+from employee_department_view;
+
+
+Example-2:-
+
+CREATE VIEW high_salary_employees as
+select
+    employee_id,
+    employee_name,
+    salary
+from employees
+where salary>60000;
+
+
+Example-3:-
+
+CREATE VIEW employee_details AS 
+SELECT
+e.employee_id,
+e.employee_name,
+e.email,
+e.salary,
+d.department_name
+FROM employees e
+JOIN departments d
+ON e.department_id = d.department_id;
+
+
+Example-4:-
+
+CREATE VIEW it_employees AS 
+SELECT
+e.employee_id,
+e.employee_name,
+e.email,
+e.salary,
+d.department_name
+FROM employees e
+JOIN departments d
+ON e.department_id = d.department_id
+where d.department_name = 'IT';
+
+
+Example-5:-
+
+CREATE OR REPLACE VIEW high_salary_employees AS 
+SELECT 
+    e.employee_id, 
+    e.employee_name, 
+    e.salary, 
+    d.department_name 
+FROM employees e 
+JOIN departments d 
+    ON e.department_id = d.department_id 
+WHERE e.salary > 60000;
+
+
+
+
+
+
+
+
+
+
+
+
+
