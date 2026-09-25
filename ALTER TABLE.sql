@@ -22,3 +22,4 @@ ALTER TABLE students
 
 ALTER TABLE students
 DROP COLUMN phone_no;
+
