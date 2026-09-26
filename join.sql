@@ -177,6 +177,39 @@ WHERE e.salary > 60000;
 
 
 
+Example-6:-View with join and groupby
+
+create view department_salary_summay as
+select
+	d.department_name,
+	count(e.employee_id) as employee_count,
+	avg(e.salary) as average_salary,
+	max(e.salary) as highest_salary,
+	min(e.salary) as lowest_salary
+from departments d
+left join employees e
+on d.department_id = e.department_id
+group by d.department_id, d.department_name;
+
+
+TO CHECK:-
+
+select * from high_salary_employees
+
+
+Example-7:-Modify a view
+
+create or replace view high_salary_employees as
+select
+employee_id,
+employee_name,
+salary,
+department_id
+from employees
+where salary>70000;
+
+
+
 
 
 
